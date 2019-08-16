@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>柱状图练习</title>
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="echarts/js/echarts.min.js"></script>
+</head>
+<body>
+213
+    <div id="barDiv" style="width: 800px;height: 600px;margin: 20px auto"></div>
+    <script>
+        var content = document.getElementById("barDiv");
+        var mycharts = echarts.init(content);
+
+        var option = {
+            xAxis:{
+                type:'value',
+                boundaryGap:[0,0.01]
+            },
+            yAxis:{
+                type:'category',
+                data:['巴西','印尼','美国','印度','中国','世界人口(万)']
+            },
+            series:[
+                {
+                    name:'2011年',
+                    type:'bar',
+                    data:[18203, 23489, 29034, 104970, 131744, 630230]
+                },
+                {
+                    name:'2012年',
+                    type:'bar',
+                    data:[19325, 23438, 31000, 121594, 134141, 681807]
+                },
+                {
+                    name:'2018年',
+                    type:'bar',
+                    data:[19325, 23438, 31000, 121594, 134141, 681807]
+                }
+            ]
+        };
+        mycharts.setOption(option,true);
+        //利用ajax在前端获取series的值并赋值到option.series中
+        // $.ajax({
+        //     type:"POST",
+        //     contentType:"application/json;charset=UTF-8",
+        //     dataType:"json",
+        //     url:"getBarChartsData",
+        //     //请求成功
+        //     success:function (result) {
+        //         console.log(result);
+        //         option.series = result;
+        //         mycharts.setOption(option,true);
+        //     },
+        //     //请求失败,包含具体的错误信息
+        //     error:function (e) {
+        //         console.log(result);
+        //         console.log(e.status);
+        //         console.log(e.response)
+        //     }
+        // });
+    </script>
+</body>
+</html>
